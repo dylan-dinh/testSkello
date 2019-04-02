@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Post App</title>
+    <style>  
+            .gfg { 
+                width:auto; 
+                text-align:center; 
+                padding:20px;
+                background: white;
+            } 
+            img { 
+                max-width: 100px;
+                height: auto;
+            }
+            .headerStyle {
+              font-style: italic;
+              text-decoration: underline;
+              color: black;
+            }
+            .titleStyle {
+              font-style: bold;
+              color: black;
+            }
+        </style>  
+  </head>
+  <div class="gfg" >
+
+  <h1 class="headerStyle">Read all articles :</h1>
+<% @DB.each_with_index do |item, index| %>
+<hr >
+    <h3 class="titleStyle"> <%= item[:title] %></h3>
+    <h4> <%= item[:content]%></h4>
+    <img src="<%= item[:photo]%>"> 
+    <h5> Comments :  <%= @each_group_of_comments[index].inspect %> </h5>
+
+<% if item.has_key? 'rating' %>
+<% else %>
+<h6> Number of stars : <%= item[:rating]%></h6>
+<% end %>    
+
+    <p> <a href="<%=@array[index]%>"> Read More </a></p>
+<% end %>
+
+  </div>
+</html>

@@ -1,0 +1,9 @@
+.textWrap {
+    float: right;
+    margin: 10px;
+}
+
+.titleStyle {
+    font-style: italic;
+    font-weight: bold;
+}

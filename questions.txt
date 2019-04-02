@@ -1,0 +1,54 @@
+BACKEND - Programming
+These can be done in any language you're comfortable with
+
+1. Give a regular expression that detects hexadecimal numbers in a text.
+For example, ‘0x0f4’, ‘0acdadecf822eeff32aca5830e438cb54aa722e3’, ‘8BADF00D’ should be detected.
+
+> (?:0[xX])?[0-9a-fA-F]+
+
+2.Here is the pseudo code of a function that is defined recursively:
+-  f(0) = 1;
+-  f(1) = 3;
+-  f(n)= 3 * f(n-1) - f(n-2);
+Provide an implementation for ‘f’. Bonus points for a non recursive implementation.
+
+> function funct(n) {
+    3 * funct(n-1) - funct(n-2)
+}
+
+BACKEND - MySQL
+
+1. Write a CREATE TABLE query for a table storing information on users. It will store:
+  - id,
+  - firstname,
+  - lastname,
+  - gender,
+  - email,
+  - created_at
+
+>  CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  firstname VARCHAR(255),
+  lastname VARCHAR(255),
+  gender CHAR(1),
+  email VARCHAR(255),    
+  created_at DATE NOT NULL
+)
+
+2. Write a query on the previous table that lists the 10 most recently added users.
+
+> SELECT * FROM users ORDER BY created_at DESC LIMIT 10;
+
+GENERAL - Creativity
+Si vous êtes Français, vous pouvez répondre en Français.
+
+1. Describe the color yellow to someone who is blind
+
+>  Avec un peu de bagage en physique : le jaune est une couleur chaude, un peu comme le soleil qui tape notre peau ; le soleil a pour température 5500 degrés ce qui correspond à 5780 Kelvin ce qui correspond à un maximum d'émission de 500 nanomètres (longeur d'ondes) et  500nm correspond à la couleur jaune sur le spectre de couleur qui va du rouge au bleu (de gauche à droite) et le jaune se situe environ au milieu des deux extrêmes. Les étoiles rouges sont celles qui dégagents le moins de chaleur et au contraire les étoiles bleues sont celles qui dégagent le plus de chaleur et donc le soleil plûtot chaud nous parvient jaune.
+>  Le jaune est aussi la couleur des tournesols qui se tournent vers le soleil jaune pour pousser.
+
+3. Describe the data model you’d use for a Battleship game. What are the key objects? How will your code use them?
+
+> Key Objects ->                 One MAP : SHIP with PLAYER_ID(and more info like : HIT, X, Y)  |  PLAYER(ID, NB_SHIP_LEFT)  | SHOT(X,Y)
+
+  How my code could use them ->  As soon as a you SHOT if SHIP is HIT remove SHIP and decrement NB_SHIP_LEFT
